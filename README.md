@@ -1,4 +1,13 @@
 Flask + Gunicorn + Nginx 部署
+Gunicorn 方式启动我们的flask app
+
+supervisor 配置文件：
+      /home/supervisord/mongod.ini    nginx.ini 
+supervisor  启动命令，启动我们的   Nginx服务  py脚本
+   supervisorctl  -c supervisord.conf 
+   supervisor> start mongod
+
+
 
 数据库 字段 Company表
 name  企业名称
