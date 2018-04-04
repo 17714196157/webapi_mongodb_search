@@ -1,9 +1,10 @@
 Flask + Gunicorn + Nginx 部署
-Gunicorn 方式启动我们的flask app
+Gunicorn 方式启动我们的flask app  
+         启动命令 /home/anaconda3/bin/gunicorn  app:app -c /usr/local/src/big_data/supervisor/gunicorn_config.py
 
 supervisor 配置文件：
-      /home/supervisord/mongod.ini    nginx.ini 
-supervisor  启动命令，启动我们的   Nginx服务  py脚本
+      /home/supervisord/mongod.ini    nginx.ini   big_data.ini(就是flask 的 app 脚本)
+supervisor  启动命令，启动我们的   Nginx服务  flask的py脚本
    supervisorctl  -c supervisord.conf 
    supervisor> start mongod
 
