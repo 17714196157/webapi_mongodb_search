@@ -11,7 +11,7 @@ import logging
 from logging.handlers import TimedRotatingFileHandler
 
 
-def creat_app_log(log_path='/home/log_sellbot/audio-download/', level=logging.INFO):
+def creat_app_log(log_path='/home/log_sellbot/big_data/', level=logging.INFO):
     """
     创建app的日志handle
     :param: 日志路径:
@@ -31,5 +31,6 @@ def creat_app_log(log_path='/home/log_sellbot/audio-download/', level=logging.IN
 
 
 if __name__ == '__main__':
-    logger = creat_app_log('/home/changzuxian/project/audio-download/service/')
-    logger.info("test")
+    # logger = creat_app_log('/home/changzuxian/project/audio-download/service/')
+    # logger.info("test")
+    pass

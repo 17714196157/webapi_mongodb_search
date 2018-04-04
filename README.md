@@ -1,5 +1,3 @@
-# mongodb_-
-mongodb作为数据库，flask启动一个web服务端口
 数据库 字段 Company表
 name  企业名称
 lagel_person 企业法人
@@ -9,13 +7,17 @@ tel 电话
 area 区域（省份）
 update_time 更新数据时间
 
-POST  http://192.168.1.92:10000/company
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+请求company接口：
+请求：http://47.98.36.72:10000/search/company_detail
+POST
 { "name": "义乌",
    "page":"1",
    "per_page":"10"
 }
 
-响应
+响应：
 {
   "result": [
     {
@@ -39,3 +41,47 @@ POST  http://192.168.1.92:10000/company
   ],
   "total_num": 710
 }
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+请求company_detail接口：
+请求
+post http://192.168.1.92:10000/search/company_detail
+{ "company_id": ["827932","483135","1595405"]}
+响应
+{
+  "483135": {
+    "area": "浙江",
+    "company_id": 483135,
+    "lagel_person": "刘兵",
+    "name": "义乌华邮科技园投资开发有限公司",
+    "register_capital": "10000.000000万人民币",
+    "register_time": "2016-10-13",
+    "tel": "0579-85603777",
+    "update_time": "2018-04-03"
+  },
+  "827932": {
+    "area": "浙江",
+    "company_id": 827932,
+    "lagel_person": "明安龙",
+    "name": "义乌华邮信息文化研究院有限公司",
+    "register_capital": "1000.000000万人民币",
+    "register_time": "2015-11-23",
+    "tel": "0579-85603777",
+    "update_time": "2018-04-03"
+  },
+  "1595405": {
+    "area": "浙江",
+    "company_id": 1595405,
+    "lagel_person": "殷志远",
+    "name": "义乌华邮资产运营管理有限公司",
+    "register_capital": "1000.000000万人民币",
+    "register_time": "2016-10-14",
+    "tel": "18678808058",
+    "update_time": "2018-04-03"
+  }
+}
+'''''''''''''''''''''''''''''''''''''''
+
+请求company_area接口：
+http://47.98.36.72:10000/search/company_area
