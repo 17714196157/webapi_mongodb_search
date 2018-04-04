@@ -1,3 +1,5 @@
+Flask + Gunicorn + Nginx 部署
+
 数据库 字段 Company表
 name  企业名称
 lagel_person 企业法人
@@ -6,7 +8,7 @@ register_time 企业注册时间
 tel 电话
 area 区域（省份）
 update_time 更新数据时间
-
+company_id 详情返回的公司ID
 
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 请求company接口：
