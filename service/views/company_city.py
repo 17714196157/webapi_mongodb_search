@@ -11,17 +11,19 @@ from flask import request
 from flask import jsonify
 from flask_restful import Resource
 from flask import current_app
-from service.models import dbtool
+from service.models import dbtool as dbtool
 
-company_area_entry = Blueprint('company_area', __name__)
+company_city_entry = Blueprint('company_city', __name__)
 
 
 # 接口
-class CompanyArea(Resource):
+class CompanyCity(Resource):
     def post(self):
         logger = current_app.app_logger
-        logger.info("in post CompanyArea")
-        result = dbtool.db_area(logger)
+        logger.info("in post company_city")
+        content = request.get_json()
+        PROVINCE = content.get('PROVINCE', None)
+        result = dbtool.db_CITY(PROVINCE, logger)
         if len(result) != 0:
             res_result = {**{"result": result}}
         else:

@@ -26,3 +26,6 @@ class CompanyDetail(Resource):
             logger.error("ERROR Post CompanyDetail e=" + str(e))
             res_result = {}
         return jsonify(res_result)
+
+    def get(self):
+        return ""

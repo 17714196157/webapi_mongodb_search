@@ -11,17 +11,16 @@ from flask import request
 from flask import jsonify
 from flask_restful import Resource
 from flask import current_app
-from service.models import dbtool
+from service.models import dbtool as dbtool
 
-company_area_entry = Blueprint('company_area', __name__)
-
+company_source_entry = Blueprint('company_source', __name__)
 
 # 接口
-class CompanyArea(Resource):
+class CompanySource(Resource):
     def post(self):
         logger = current_app.app_logger
-        logger.info("in post CompanyArea")
-        result = dbtool.db_area(logger)
+        logger.info("in post company_source")
+        result = dbtool.db_source(logger)
         if len(result) != 0:
             res_result = {**{"result": result}}
         else:
