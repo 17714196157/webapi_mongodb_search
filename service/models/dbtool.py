@@ -93,7 +93,7 @@ class Company(db.Document):
     NAME = db.StringField(max_length=255, required=True)
     TEL = db.StringField(max_length=255, required=True)
     INDUSTRY = db.StringField(max_length=255, null=True)
-    LAGEL_PERSON = db.StringField(max_length=255, null=True)
+    LEGAL_PERSON = db.StringField(max_length=255, null=True)
     REGISTER_CAPITAL = db.StringField(max_length=255, null=True)
     REGISTER_TIME = db.StringField(max_length=255, null=True)
     ADDRESS = db.StringField(max_length=255, null=True)
@@ -118,9 +118,10 @@ def count_all(search_condition_str, search_condition, logger=None):
     :return:
     """
     t1 = time.time()
-    logger.info("begin count all" + str(search_condition_str))
+    logger.info("begin count all " + str(search_condition_str))
     try:
         res_db = Company.objects(db.Q(**search_condition))
+        # print("!!!!!!!!!!!!!!!", type(res_db))
         all_n = res_db.count()
     except Exception as e:
         logger.error("count 总数异常")
