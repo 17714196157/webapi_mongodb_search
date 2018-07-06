@@ -108,7 +108,7 @@ class Company(db.Document):
     # }
 
 
-@cache_func_redis(timeout=36000)
+@cache_func_redis(timeout=360000)
 def count_all(search_condition_str, search_condition, logger=None):
     """
     统计总数
@@ -233,12 +233,13 @@ def db_CITY(PROVINCE, logger=None):
 
 
 @cache_func_redis(timeout=36000)
-def db_URBAN_AREA(PROVINCE, CITY, logger=None):
+def db_URBAN_AREA(CITY, logger=None):
     logger.info("begin  URBAN_AREA list  for CITY:"+str(CITY))
-    if PROVINCE is None or CITY is None:
+    if CITY is None or CITY == "":
         return []
     t1 = time.time()
-    result_search_list = Company.objects(PROVINCE=PROVINCE, CITY=CITY).distinct('URBAN_AREA')
+    # result_search_list = Company.objects(PROVINCE=PROVINCE, CITY=CITY).distinct('URBAN_AREA')
+    result_search_list = Company.objects(CITY=CITY).distinct('URBAN_AREA')
     t2 = time.time()
     logger.info("return URBAN_AREA list cost time="+str(t2-t1))
     return result_search_list

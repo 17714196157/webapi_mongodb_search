@@ -29,7 +29,8 @@ class CompanyUrbanArea(Resource):
         if PROVINCE is not None and PROVINCE.strip() == "":
             PROVINCE = None
 
-        result = dbtool.db_URBAN_AREA(PROVINCE, CITY, logger)
+        # result = dbtool.db_URBAN_AREA(PROVINCE, CITY, logger)
+        result = dbtool.db_URBAN_AREA(CITY, logger)
         if len(result) != 0:
             res_result = {**{"result": result}}
         else:
